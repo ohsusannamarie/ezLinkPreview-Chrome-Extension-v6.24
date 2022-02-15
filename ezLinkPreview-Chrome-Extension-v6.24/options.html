@@ -1,0 +1,1140 @@
+<html>
+<head>
+	<title>ezLinkPreview Extension - Options</title>
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="commonLibs.js"></script>
+		
+<style>
+body { font-family:helvetica, arial, sans-serif; font-size:80%; margin:10px;}
+#header {  padding-bottom:1.5em; padding-top:1.5em;}
+#header h1 {  font-size: 156%;  display:inline;  padding-bottom:43px;  padding-left:75px;  padding-top:40px;  background:url(voice-128.png) no-repeat;  background-size:67px;  background-position:1px 18px;}
+#footer {  margin-left: 24px;  margin-top: 12px;}
+
+.gc-settings-content {  margin: 6px 6px 0 6px;  padding: 10px 10px 10px 10px;  color: #333;  border: 1px solid #dedede;  -webkit-border-radius: 5px 5px;}
+.gc-settings-table {  width: 100%;  font-size: 1em;}
+.gc-settings-table .left,
+.gc-settings-table .right {  vertical-align: top;  border-bottom: 0 dotted #aaa;}
+.gc-settings-table th {  text-align: right;  width: 1%;  white-space: nowrap;  padding: 12px 24px 12px 12px;}
+.gc-settings-table td {  width: 99%;  white-space: nowrap;  padding: 12px;}
+
+.option-block {
+	background-image: -webkit-gradient(linear, left top, left bottom,
+		color-stop(0.0, rgba(255, 255, 255, 0.8)),
+		color-stop(0.01, rgba(255, 255, 255, 0.6)),
+		color-stop(0.4, rgba(255, 255, 255, 0.3)),
+		color-stop(0.4, rgba(255, 255, 255, 0.2)),
+		color-stop(1.0, rgba(255, 255, 255, 0.0)));
+	background-color: #E9ECEF;
+	border: 1px solid #777; 
+	border-radius: 12px;
+	margin: 0px;
+	padding: 10px;
+	/* -webkit-box-shadow: 1px 1px 3px #888; */
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.option-block td {	padding: 4px;}
+.option-tip {	font-size: 80%;}
+
+button {
+	/* font-family: arial, sans-serif;  */
+	font-size: 12pt; 
+	font-weight: bold;
+	/* margin: 1em;  */
+	padding: 5px 20px 5px 20px;
+	padding: 4px 14px 4px 14px; 
+	outline-width: 0;
+	border: 1px solid #000;
+	border-radius: 20px;
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5),
+		inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+
+	-webkit-transition: background-color 0.2s ease-in-out,
+			color 0.2s ease-in-out,
+			-webkit-box-shadow 0.2s ease-in-out;
+
+	background-image: -webkit-gradient(linear, left top, left bottom,
+			color-stop(0.0, rgba(255, 255, 255, 0.8)),
+			color-stop(0.01, rgba(255, 255, 255, 0.6)),
+			color-stop(0.4, rgba(255, 255, 255, 0.3)),
+			color-stop(0.4, rgba(255, 255, 255, 0.2)),
+			color-stop(1.0, rgba(255, 255, 255, 0.0)));
+	background-color: #444;
+	background-color: #666;
+	color: #fff;
+	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
+}
+
+button:hover, button:focus {
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.9);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9),
+		inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+	background-color: #666;
+	background-color: #CE7747;
+	color: #fff;
+}
+
+button:active {
+	background-color: #222;
+	background-color: #444;
+	color: #ccc;
+	-webkit-transition-duration: 0.0s;
+}
+
+
+input[type=button] {
+	/* font-family: arial, sans-serif;  */
+	/* font-size: 12pt; */
+	font-weight: bold;
+	/* margin: 1em;  */
+	padding: 2px 5px 2px 5px; 
+	outline-width: 0;
+	border: 1px solid #000;
+	border-radius: 8px;
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5),
+		inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+
+	-webkit-transition: background-color 0.2s ease-in-out,
+			color 0.2s ease-in-out,
+			-webkit-box-shadow 0.2s ease-in-out;
+
+	background-image: -webkit-gradient(linear, left top, left bottom,
+			color-stop(0.0, rgba(255, 255, 255, 0.8)),
+			color-stop(0.01, rgba(255, 255, 255, 0.6)),
+			color-stop(0.4, rgba(255, 255, 255, 0.3)),
+			color-stop(0.4, rgba(255, 255, 255, 0.2)),
+			color-stop(1.0, rgba(255, 255, 255, 0.0)));
+	background-color: #444;
+	background-color: #787E84;
+	color: #fff;
+	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
+}
+
+input[type=button]:hover, input[type=button]:focus {
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.9);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9),
+		inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+	background-color: #666;
+	background-color: #CE7747;
+	color: #fff;
+}
+
+input[type=button]:active {
+	background-color: #222;
+	background-color: #444;
+	color: #ccc;
+	-webkit-transition-duration: 0.0s;
+}
+
+
+#paypalDonate {
+
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+
+<div id="header">
+  <image src="ez128.png" width="64" height="64" />
+  <a id="paypalDonate" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PW7NBGE83BW7Q" title="Click this button to go to PayPal and make a donation">
+    <img border="0" id="payPalImage" src="donateSml.png" alt="Donate to ezanker chrome extensions" />
+  </a>
+  <h1>ezLinkPreview Extension Options</h1>
+</div>
+
+<div id="footer">
+  <button id="save-button" style="font-weight:bold" title="Save the changes you have made">Save</button>
+  <button id="defaults-button" style="font-weight:bold" title="Restore settings to the extension's defaults">Restore Defaults</button>
+  <span id="status" style="margin-left: 10px; color: #0e5ecf; font-weight:bold;"></span>
+</div>
+
+<form name="gezLinkPreview">
+<div class="gc-settings-content">
+  <table class="gc-settings-table" id="gc-settings-ezlinkpreview-content">
+    <tr>
+      <th class="left">Preview type</th>
+      <td class="right">
+        <input type="radio" id="previewDefault" name="gcpreviewtype" value="2"/>
+        <label for="previewDefault">Popup (Default)</label><br/>
+        <input type="radio" id="previewSplit" name="gcpreviewtype" value="1"/>
+        <label for="previewSplit">Split screen (currently NO image zoom)</label><br/>
+      </td>
+    </tr>
+	
+	<tr>
+      <th class="left">On mouseover link</th>
+      <td class="right">
+        <input type="radio" id="default" name="gcdefault" value="2"/>
+        <label for="default">Show ez icon</label><br/>
+        <input type="radio" id="linkHover" name="gcdefault" value="1"/>
+        <label for="linkHover">Open preview overlay</label><br/>	
+		<span style="padding-left: 20px;"> <label><input type="checkbox" name="chkCloseOnLeave" id="chkCloseOnLeave" title="With Open Preview Overlay selected, check this box to have the preview automatically hidden when you leave the link" />Close preview on leave link</label>  </span>
+      </td>
+    </tr>
+    <tr>
+      <th class="left">EZ icon visibility</th>
+      <td class="right">
+        <input type="radio" id="locIconVisible" name="gcvis" value="2"/>
+        <label for="locIconVisible">Visible</label><br/>
+        <input type="radio" id="locIconHidden" name="gcvis" value="1"/>
+        <label for="locIconHidden">Hidden</label><br/>
+      </td>
+    </tr>	
+    <tr>
+      <th class="left">EZ icon location</th>
+      <td class="right">
+        <input type="radio" id="locDefault" name="gcloc" value="2"/>
+        <label for="locDefault">Upper right of link</label><br/>
+        <input type="radio" id="locNearMouse" name="gcloc" value="1"/>
+        <label for="locNearMouse">Near my cursor</label><br/>
+      </td>
+    </tr>
+    <tr>
+      <th class="left">EZ icon action</th>
+      <td class="right">
+        <input type="radio" id="actionHover" name="gcaction" value="2"/>
+        <label for="actionHover">Hover or Click to show preview</label><br/>
+        <input type="radio" id="actionClick" name="gcaction" value="1"/>
+        <label for="actionClick">Click only to show preview</label><br/>
+      </td>
+    </tr>
+	<tr>
+		<th class="left">EZ icon delay (milliseconds)</th>
+		<td class="right">
+			<input id="txtEZDelay" name="txtEZDelay" value="" title="Enter number of milliseconds delay before EZ Icon is displayed (default is 700)" />
+		</td>
+	</tr>
+	<tr>
+		<th class="left">EZ icon size (pixels)</th>
+		<td class="right">
+			<input id="txtEZSize" name="txtEZSize" value="" title="Enter a number of pixels between 8 and 48 for the size of the ez icon (default is 16)" />
+		</td>
+	</tr>	
+    
+	<tr>
+		<th class="left">EZ icon distance from link</th>
+		<td class="right">
+			X = <input id="txtEZX" name="txtEZX" value="" title="Horizontal distance in pixels to the right of link the EZ icon should appear (default is 4)" />
+			<br />
+			Y = <input id="txtEZY" name="txtEZY" value="" title="Vertical distance in pixels above the link the EZ icon should appear (default is 6)" />
+		</td>
+	</tr>	
+
+    <tr>
+      <th class="left">Preview within preview</th>
+      <td class="right">
+        <input type="radio" id="pinpEnable" name="gcpinp" value="2"/>
+        <label for="pinpEnable">Enable</label><br/>
+        <input type="radio" id="pinpDisable" name="gcpinp" value="1"/>
+        <label for="pinpDisable">Disable</label><br/>
+      </td>
+    </tr>	
+	
+	<tr>
+      <th class="left">Preview popup initial location</th>
+      <td class="right">
+        <input type="radio" id="plocRT" name="gcPrevloc" value="0"/>
+        <label for="plocRT">Top-Right of Viewport</label><br/>
+        <input type="radio" id="plocRB" name="gcPrevloc" value="1"/>
+        <label for="plocRB">Bottom-Right of viewport</label><br/>
+        <input type="radio" id="plocLT" name="gcPrevloc" value="2"/>
+        <label for="plocLT">Top-Left of viewport</label><br/>
+        <input type="radio" id="plocLB" name="gcPrevloc" value="3"/>
+        <label for="plocLB">Bottom-Left of viewport</label><br/>
+        <input type="radio" id="plocC" name="gcPrevloc" value="4"/>
+        <label for="plocC">Center of viewport</label><br/>
+	  </td>
+    </tr>	
+	
+	<tr>
+      <th class="left">On click outside preview popup</th>
+      <td class="right">
+        <input type="radio" id="ClickClosesPreview" name="gcclickoutside" value="2"/>
+        <label for="ClickClosesPreview">Close preview</label><br/>
+        <input type="radio" id="ClickLeavesPreview" name="gcclickoutside" value="1"/>
+        <label for="ClickLeavesPreview">Leave preview open</label><br/>
+      </td>
+    </tr>
+
+
+	<tr>
+      <th class="left">On load preview into new tab</th>
+      <td class="right">
+        <input type="radio" id="tabDefault" name="gctab" value="2"/>
+        <label for="tabDefault">Leave preview open</label><br/>
+        <input type="radio" id="tabClose" name="gctab" value="1"/>
+        <label for="tabClose">Close preview</label><br/>
+      </td>
+    </tr>
+	
+	<tr>
+		<th class="left">Split screen initial size</th>
+		<td class="right">
+			<input id="txtLeftSize" name="txtLeftSize" value="50" title="Enter percentage of browser window width that should be assigned to the left panel when the screen is split (default is 50)" />
+		</td>
+	</tr>	
+	
+	<tr>
+      <th class="left">Split screen title bar</th>
+      <td class="right">
+        <input type="radio" id="titlebarShow" name="gcTitlebar" value="2"/>
+        <label for="titlebarShow">Show title bar</label><br/>
+        <input type="radio" id="titlebarHide" name="gcTitlebar" value="1"/>
+        <label for="titlebarHide">Hide title bar</label><br/>
+      </td>
+    </tr>	
+	
+	
+	<tr>
+      <th class="left">On text selection</th>
+      <td class="right">
+        <input type="radio" id="selTextON" name="gcseltext" value="2"/>
+        <label for="selTextON">Use EZ icon to search text in preview popup</label><br/>
+        <input type="radio" id="selTextOFF" name="gcseltext" value="1"/>
+        <label for="selTextOFF">Disable text search functionality</label><br/>
+      </td>
+    </tr>	
+	
+	<tr>
+      <th class="left">Search keyboard shortcut</th>
+      <td class="right">
+        <input type="radio" id="shortcutON" name="gckeyshortcut" value="2"/>
+        <label for="shortcutON">Use ctrl+alt+S to popup preview in search mode</label><br/>
+        <input type="radio" id="shortcutOFF" name="gckeyshortcut" value="1"/>
+        <label for="shortcutOFF">Disable search keyboard shortcut</label><br/>
+      </td>
+    </tr>
+
+	<tr>
+      <th class="left">Keyboard shortcuts</th>
+      <td class="right">
+        <input type="radio" id="allshortcutsON" name="gcallshortcut" value="2"/>
+        <label for="allshortcutsON">Allow use of keyboard shortcuts</label><br/>
+        <input type="radio" id="allshortcutsOFF" name="gcallshortcut" value="1"/>
+        <label for="allshortcutsOFF">Disable all keyboard shortcuts</label><br/>
+      </td>
+    </tr>			
+	
+	<tr>
+      <th class="left">PDF links</th>
+      <td class="right">
+        <input type="radio" id="pdfToGoogle" name="gcpdf" value="2"/>
+        <label for="pdfToGoogle">Send PDF files to Google Docs Viewer</label><br/>
+        <input type="radio" id="pdfNormal" name="gcpdf" value="1"/>
+        <label for="pdfNormal">Treat PDF links as normal links</label><br/>
+      </td>
+    </tr>	
+	
+	<tr>
+      <th class="left">IMAGE links</th>
+      <td class="right">
+        <input type="radio" id="imageON" name="gcIMG" value="2"/>
+        <label for="imageON">Enable image link preview</label><br/>
+		<span style="padding-left: 20px;"> <label><input type="checkbox" name="chkPIOH" id="chkPIOH" title="With IMAGE Preview enabled, check this box to have the preview automatically open when hovering over image link" />Preview images on hover (no ez icon)</label></span><br />
+        <input type="radio" id="imageOFF" name="gcIMG" value="1"/>
+        <label for="imageOFF">Disable image link preview</label><br/>
+      </td>
+    </tr>	
+
+
+	<tr>
+      <th class="left">Context menu items</th>
+      <td class="right">
+        <input type="radio" id="contextShow" name="gcContext" value="2" title="Clicking the Note in Reader button allows any page to be shared in Google Reader" />
+        <label for="contextShow" >Show  context menu items</label><br/>
+        <input type="radio" id="contextHide" name="gcContext" value="1"/>
+        <label for="contextHide">Hide context menu items</label><br/>
+      </td>
+    </tr>
+
+	
+	<tr>
+      <th class="left">Google+ button in page</th>
+      <td class="right">
+        <input type="radio" id="readerShow" name="gcReader" value="1" title="Clicking the +1 button allows any page to be shared in Google+" />
+        <label for="readerShow" title="Clicking the +1 button allows any page to be shared in Google+" >Show button at top left of page</label><br/>
+        <input type="radio" id="readerHide" name="gcReader" value="2"/>
+        <label for="readerHide">Hide button</label><br/>
+      </td>
+    </tr>
+	<tr>
+      <th class="left">Google Bookmarks button in page</th>
+      <td class="right">
+        <input type="radio" id="bookmarkShow" name="gcBookmark" value="1" title="Clicking the Google Bookmarks button allows any page to be added to your Google Bookmarks account" />
+        <label for="bookmarkShow" title="Clicking the Google Bookmarks button allows any page to be added to your Google Bookmarks account" >Show button at top left of page</label><br/>
+        <input type="radio" id="bookmarkHide" name="gcBookmark" value="2"/>
+        <label for="bookmarkHide">Hide button</label><br/>
+      </td>
+    </tr>
+
+	<tr>
+      <th class="left">Google+ and Bookmarks button in titlebar</th>
+      <td class="right">
+        <input type="radio" id="googbarShow" name="gcGoogBar" value="2" title="" />
+        <label for="googbarShow" title="" >Show titlebar buttons</label><br/>
+        <input type="radio" id="googbarHide" name="gcGoogBar" value="1"/>
+        <label for="googbarHide">Hide titlebar buttons</label><br/>
+      </td>
+    </tr>	
+	
+	<tr>
+	  <th class="left"></th>
+	  <td class="right">
+	    <div style="display: none;"><input id="txtCustomSearch" name="txtCustomSearch" value="" title="Enter a custom search site using {0} where the search terms should be inserted." style="width: 550px;" /></div>
+	  </td>
+	</tr>
+	
+    <tr>
+        <th class="left">
+			Search engines
+			<br /><br />
+			<div id="ezSearchDialog" style="padding-left: 98px;">
+			
+			
+			</div> 
+        </th>
+ 	    <td class="right">	  
+			Enter a custom search site using {0} where the search terms should be inserted<br />
+			(e.g. for google you would enter: https://www.google.com/search?q={0} ).<br />
+		
+            <table class="option-block ezEngineBlock" style="width: 900px;">
+                <tr>
+                    <td style="width: 1%">
+                    1
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName1" name="cboSearchName1" title="Select search engine for first button or custom to specify your own">
+                           <option selected="selected">Dogpile</option>
+                           <option>Bing</option>
+                           <option>Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option>Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName1" name="txtSearchName1" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL1" name="txtSearchURL1" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg1" name="txtSearchImg1" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 1%">
+                    2
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName2" name="cboSearchName2" title="Select search engine for first button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option selected="selected">Bing</option>
+                           <option>Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option>Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName2" name="txtSearchName2" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL2" name="txtSearchURL2" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg2" name="txtSearchImg2" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 1%">
+                    3
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName3" name="cboSearchName3" title="Select search engine for first button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option selected="selected">Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option>Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName3" name="txtSearchName3" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL3" name="txtSearchURL3" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg3" name="txtSearchImg3" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>       
+            
+                <tr>
+                    <td style="width: 1%">
+                    4
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName4" name="cboSearchName4" title="Select search engine for first button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option >Yahoo</option>
+                           <option selected="selected">Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option>Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName4" name="txtSearchName4" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL4" name="txtSearchURL4" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg4" name="txtSearchImg4" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>                  
+            
+                <tr>
+                    <td style="width: 1%">
+                    5
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName5" name="cboSearchName5" title="Select search engine for first button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option>Bing</option>
+                           <option>Yahoo</option>
+                           <option>Wiki</option>
+                           <option selected="selected">Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option>Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName5" name="txtSearchName5" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL5" name="txtSearchURL5" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg5" name="txtSearchImg5" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 1%">
+                    6
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName6" name="cboSearchName6" title="Select search engine for first button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option>Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option selected="selected">Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option>Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName6" name="txtSearchName6" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL6" name="txtSearchURL6" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg6" name="txtSearchImg6" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 1%">
+                    7
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName7" name="cboSearchName7" title="Select search engine for first button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option >Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option selected="selected">Dictionary</option>
+                           <option>Baidu</option>
+                           <option>Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName7" name="txtSearchName7" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL7" name="txtSearchURL7" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg7" name="txtSearchImg7" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>       
+            
+                <tr>
+                    <td style="width: 1%">
+                    8
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName8" name="cboSearchName8" title="Select search engine for first button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option >Yahoo</option>
+                           <option >Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option selected="selected">Baidu</option>
+                           <option>Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName8" name="txtSearchName8" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL8" name="txtSearchURL8" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg8" name="txtSearchImg8" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>                      
+            
+                <tr>
+                    <td style="width: 1%">
+                    9
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName9" name="cboSearchName9" title="Select search engine for first button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option >Yahoo</option>
+                           <option >Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option >Baidu</option>
+                           <option selected="selected">Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName9" name="txtSearchName9" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL9" name="txtSearchURL9" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg9" name="txtSearchImg9" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>                      
+
+                <tr>
+                    <td style="width: 1%">
+                    10
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName10" name="cboSearchName10" title="Select search engine for button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option>Bing</option>
+                           <option>Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option selected="selected">Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName10" name="txtSearchName10" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL10" name="txtSearchURL10" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg10" name="txtSearchImg10" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 1%">
+                    11
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName11" name="cboSearchName11" title="Select search engine for button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option>Bing</option>
+                           <option>Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option selected="selected">Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName11" name="txtSearchName11" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL11" name="txtSearchURL11" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg11" name="txtSearchImg11" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 1%">
+                    12
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName12" name="cboSearchName12" title="Select search engine for button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option>Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option selected="selected">Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName12" name="txtSearchName12" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL12" name="txtSearchURL12" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg12" name="txtSearchImg12" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>       
+            
+                <tr>
+                    <td style="width: 1%">
+                    13
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName13" name="cboSearchName13" title="Select search engine for button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option >Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option selected="selected">Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName13" name="txtSearchName13" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL13" name="txtSearchURL13" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg13" name="txtSearchImg13" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>                  
+            
+                <tr>
+                    <td style="width: 1%">
+                    14
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName14" name="cboSearchName14" title="Select search engine for button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option>Bing</option>
+                           <option>Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option selected="selected">Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName14" name="txtSearchName14" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL14" name="txtSearchURL14" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg14" name="txtSearchImg14" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 1%">
+                    15
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName15" name="cboSearchName15" title="Select search engine for button or custom to specify your own">
+                           <option>Dogpile</option>
+                           <option>Bing</option>
+                           <option>Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option selected="selected">Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName15" name="txtSearchName15" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL15" name="txtSearchURL15" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg15" name="txtSearchImg15" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 1%">
+                    16
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName16" name="cboSearchName16" title="Select search engine for button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option >Yahoo</option>
+                           <option>Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option selected="selected">Dictionary</option>
+                           <option>Baidu</option>
+                           <option>Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName16" name="txtSearchName16" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL16" name="txtSearchURL16" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg16" name="txtSearchImg16" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>       
+            
+                <tr>
+                    <td style="width: 1%">
+                    17
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName17" name="cboSearchName17" title="Select search engine for button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option >Yahoo</option>
+                           <option >Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option selected="selected">Baidu</option>
+                           <option>Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName17" name="txtSearchName17" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL17" name="txtSearchURL17" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg17" name="txtSearchImg17" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>                      
+            
+                <tr>
+                    <td style="width: 1%">
+                    18
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName18" name="cboSearchName18" title="Select search engine for button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option >Yahoo</option>
+                           <option >Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option >Baidu</option>
+                           <option selected="selected">Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName18" name="txtSearchName18" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL18" name="txtSearchURL18" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg18" name="txtSearchImg18" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>     
+
+               <tr>
+                    <td style="width: 1%">
+                    19
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName19" name="cboSearchName19" title="Select search engine for button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option >Yahoo</option>
+                           <option >Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option >Baidu</option>
+                           <option selected="selected">Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName19" name="txtSearchName19" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL19" name="txtSearchURL19" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg19" name="txtSearchImg19" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>                  			
+
+               <tr>
+                    <td style="width: 1%">
+                    20
+                    </td>
+                    <td style="width: 15%">
+                    Select Search:<br />
+                        <select style="width: 100%" class="ezEngineSelect" id="cboSearchName20" name="cboSearchName20" title="Select search engine for button or custom to specify your own">
+                           <option >Dogpile</option>
+                           <option >Bing</option>
+                           <option >Yahoo</option>
+                           <option >Wiki</option>
+                           <option>Video</option>
+                           <option>Amazon</option>
+                           <option>Dictionary</option>
+                           <option>Baidu</option>
+                           <option selected="selected">Custom</option>
+                        </select>
+                    </td>
+                    <td style="width: 15%">
+                    Name:<br /><input style="width: 100%" id="txtSearchName20" name="txtSearchName20" value="" title="Search engine name appears in button tooltip on hover" />
+                    </td>
+                    <td style="width: 34%">
+			        URL:<br /><input style="width: 100%" id="txtSearchURL20" name="txtSearchURL20" value="" title="URL for the search query using {0} where the search terms should be inserted (e.g. https://www.google.com/search?q={0})" />
+                    </td>
+                    <td style="width: 25%">
+                    Icon URL:<br /><input style="width: 100%" id="txtSearchImg20" name="txtSearchImg20" value="" title="URL for the image that should show on the button for this search" />
+                    </td>
+                </tr>                  							
+          
+            </table>
+         </td>    
+    </tr>	
+	
+	
+	
+
+	
+	<tr>
+	  <th class="left">Exclusion list</th>
+	  <td class="right">	
+        <table class="option-block" style="width: 550px;"> 
+			<tr>
+				<td>
+					<span class="option-tip" >ezLinkPreview will be disabled for URLs which inclue the listed text</span>
+				</td>
+			</tr>
+			<tr> 
+				<td style="width:100%"> 
+					<input id="addressText" type="text"  style="width: 250px" /> 
+					<input id="addButton" type="button" value="Add" /> 
+				</td> 
+			</tr> 
+			<tr> 
+				<td> 
+					<select id="addressList" size="4" multiple="multiple" style="width: 100%"> 
+					</select> 
+				</td> 
+			</tr> 
+			<tr> 
+				<td> 
+					<input id="removeButton" type="button" value="Remove" title="Remove the selected item" /> 
+					<input id="removeAllButton" type="button" value="Remove All" title="Remove all items from the list" />
+				</td> 
+			</tr> 
+		</table> 	  
+  
+	  </td>
+	</tr>
+	
+	<tr>
+		<th class="left">Open in new tab</th>
+		<td class="right">
+		
+        <table class="option-block" style="width: 550px;"> 
+			<tr>
+				<td>
+					<span class="option-tip" >URLs which inclue the listed text will be opened in a new tab instead of the preview</span>
+				</td>
+			</tr>
+			<tr> 
+				<td style="width:100%"> 
+					<input id="addressTextTAB" type="text"  style="width: 250px" /> 
+					<input id="addButtonTAB" type="button" value="Add" /> 
+				</td> 
+			</tr> 
+			<tr> 
+				<td> 
+					<select id="addressListTAB" size="3" multiple="multiple" style="width: 100%"> 
+					</select> 
+				</td> 
+			</tr> 
+			<tr> 
+				<td> 
+					<input id="removeButtonTAB" type="button" value="Remove" title="Remove the selected item" /> 
+					<input id="removeAllButtonTAB" type="button" value="Remove All" title="Remove all items from the list" />
+				</td> 
+			</tr> 
+		</table> 	  		
+		
+		</td>
+	</tr>
+   
+ 	<tr>
+		<th class="left">Auto split list</th>
+		<td class="right">
+		
+        <table class="option-block" style="width: 550px;"> 
+			<tr>
+				<td>
+					<span class="option-tip" >URLs which inclue the listed text will automatically be loaded split screen</span>
+				</td>
+			</tr>
+			<tr> 
+				<td style="width:100%"> 
+					<input id="addressTextSPLIT" type="text"  style="width: 250px" /> 
+					<input id="addButtonSPLIT" type="button" value="Add" /> 
+				</td> 
+			</tr> 
+			<tr> 
+				<td> 
+					<select id="addressListSPLIT" size="3" multiple="multiple" style="width: 100%"> 
+					</select> 
+				</td> 
+			</tr> 
+			<tr> 
+				<td> 
+					<input id="removeButtonSPLIT" type="button" value="Remove" title="Remove the selected item" /> 
+					<input id="removeAllButtonSPLIT" type="button" value="Remove All" title="Remove all items from the list" />
+				</td> 
+			</tr> 
+		</table> 	  		
+		
+		</td>
+	</tr>
+     
+   
+   	<tr>
+		<th class="left">Preview in textonly.in</th>
+		<td class="right">
+		
+        <table class="option-block" style="width: 550px;"> 
+			<tr>
+				<td>
+					<span class="option-tip" >URLs which inclue the listed text will be previewed in readable mode via textonly.in.</span>  
+					<br />
+					<span class="option-tip" >This can work to preview articles from frame-busting news sites (e.g. NYTimes.com).</span> 
+				</td>
+			</tr>
+			<tr> 
+				<td style="width:100%"> 
+					<input id="addressTextVT" type="text"  style="width: 250px" /> 
+					<input id="addButtonVT" type="button" value="Add" /> 
+				</td> 
+			</tr> 
+			<tr> 
+				<td> 
+					<select id="addressListVT" size="3" multiple="multiple" style="width: 100%"> 
+					</select> 
+				</td> 
+			</tr> 
+			<tr> 
+				<td> 
+					<input id="removeButtonVT" type="button" value="Remove" title="Remove the selected item" /> 
+					<input id="removeAllButtonVT" type="button" value="Remove All" title="Remove all items from the list" />
+				</td> 
+			</tr> 
+		</table> 	  		
+		
+		</td>
+	</tr>
+   
+   
+   
+   
+   </table>
+</div>
+</form>
+
+
+<script type="text/javascript" src="options.js"></script>
+</body>
+</html>

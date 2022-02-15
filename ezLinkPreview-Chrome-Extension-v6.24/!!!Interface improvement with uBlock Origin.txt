@@ -1,0 +1,10 @@
+*##.ezui-dialog-content.ezui-widget-content:style(padding:0!important;background:black!important)
+*##.ezui-resizable.ezui-draggable.ezui-corner-all.ezui-widget-content.ezui-widget.ezui-dialog:style(background:black!important)
+*##.ezui-widget-header:style(background-color:#042e53!important;border-color:#042746!important;background-image:none!important)
+*##.ezui-dialog-title:style(color:#aaaaaa!important)
+*##.ezui-state-hover:style(color:#042e53!important;background-color:#042e53!important;border-color:#042746!important;background-image:none!important)
+*##.ezui-widget-content:style(border-width:0px!important)
+*##.ezui-dialog:style(padding:0!important)
+
+
+Source: https://old.reddit.com/r/chrome_extensions/comments/f9d7xa/improving_ezlinkpreview_with_ublock_origin/

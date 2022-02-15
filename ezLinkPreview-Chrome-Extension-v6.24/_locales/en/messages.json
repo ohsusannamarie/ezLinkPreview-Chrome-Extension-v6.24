@@ -1,0 +1,11 @@
+{
+   "browser_action_default_title": {
+      "message": "Split the selected tab into 2 panels (hovering over links in left panel will open them in right panel)"
+   },
+   "extension_description": {
+      "message": "Preview links in a draggable, resizable overlay/popup."
+   },
+   "extension_name": {
+      "message": "ezLinkPreview"
+   }
+}

@@ -1,0 +1,34 @@
+{
+   "background": {
+      "page": "background.html"
+   },
+   "browser_action": {
+      "default_icon": "ezSplit.png",
+      "default_title": "Split the selected tab into 2 panels (hover over links in left panel will open them in right panel)"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "jquery-ui-1.7.2.custom.css" ],
+      "exclude_matches": [ "*://signin.ebay.com/*", "*://signin.ebay.de/*", "*://*/*.pdf" ],
+      "js": [ "jquery-1.7.2.min.js", "commonLibs.js", "jquery-ui-1.7.2.custom.min.js", "ezLinkPreview.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_extension_description__",
+   "icons": {
+      "128": "ez128.png",
+      "16": "ez16.png",
+      "48": "ez48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCssIQdIR14f+I/rCQ/ofK8YBeHTvmAmZ7Lbi1pEl3nudyFJl6X/bC76IRr+U2mFfSjszlVKA1N1nzi+kVbYGwUkD2lyPWZIATbNmy6Pso/hAE/qDw4pdGHYm2fwmLXqojFEd/2mIbjQnTugTyEEVsr7o+nAVetKfAexX/iN/Gl3QIDAQAB",
+   "manifest_version": 2,
+   "name": "ezLinkPreview",
+   "omnibox": {
+      "keyword": "ezs"
+   },
+   "options_page": "options.html",
+   "permissions": [ "tabs", "http://www.google.com/", "http://*/*", "https://*/*", "contextMenus", "notifications", "webRequest", "webRequestBlocking" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "6.24"
+}

@@ -1,0 +1,19 @@
+1. Installation:
+1.1 Go to chrome://extensions
+1.2 Enable Developer mode
+1.3 Press Load unpacked and open the unpacked extension's folder
+
+
+2. It's possible to radically improve ezLinkPreview interface by using these filters in uBlock Origin:
+
+*##.ezui-dialog-content.ezui-widget-content:style(padding:0!important;background:black!important)
+*##.ezui-resizable.ezui-draggable.ezui-corner-all.ezui-widget-content.ezui-widget.ezui-dialog:style(background:black!important)
+*##.ezui-widget-header:style(background-color:#042e53!important;border-color:#042746!important;background-image:none!important)
+*##.ezui-dialog-title:style(color:#aaaaaa!important)
+*##.ezui-state-hover:style(color:#042e53!important;background-color:#042e53!important;border-color:#042746!important;background-image:none!important)
+*##.ezui-widget-content:style(border-width:0px!important)
+*##.ezui-dialog:style(padding:0!important)
+*###ezLinkPreviewVEMAILBUTTON
+*###ezLinkPreviewTRELLOBUTTON
+
+Source: https://old.reddit.com/r/chrome_extensions/comments/f9d7xa/improving_ezlinkpreview_with_ublock_origin/

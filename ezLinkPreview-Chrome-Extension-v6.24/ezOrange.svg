@@ -1,0 +1,26 @@
+<svg id="svg5687" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="16" width="16" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<defs id="defs5689">
+<linearGradient id="linearGradient5608" y2="925.1" gradientUnits="userSpaceOnUse" x2="65.107" gradientTransform="matrix(.11790 0 0 .11790 .45413 927.83)" y1="1051.6" x1="63.447">
+<stop id="stop5633" stop-color="#d7d8dc" offset="0"/>
+<stop id="stop5631" stop-color="#fff" offset="1"/>
+</linearGradient>
+<filter id="filter6325" style="color-interpolation-filters:sRGB" height="1.2171" width="1.1537" y="-.10854" x="-.076869">
+<feGaussianBlur id="feGaussianBlur6327" stdDeviation="0.36581836"/>
+</filter>
+</defs>
+<g id="layer1" transform="translate(0 -1036.4)">
+<path id="rect3336" stroke-linejoin="round" d="m1.9031 1036.9h12.194c0.78383 0 1.4149 0.6311 1.4149 1.4149v12.194c0 0.7838-0.63102 1.4147-1.4149 1.4147h-12.194c-0.78383 0-1.4149-0.6309-1.4149-1.4147v-12.194c0-0.7838 0.63102-1.4149 1.4149-1.4149z" fill-rule="evenodd" stroke="#8e8d96" stroke-width=".97651" fill="url(#linearGradient5608)"/>
+</g>
+<g id="layer3">
+<g id="text6263" opacity="0.745" transform="translate(.36949 .24386)" filter="url(#filter6325)" fill="#686768">
+<path id="path6289" d="m2.4885 4.0824h4.59q0.0675 0.3375 0.0675 0.68625 0 0.37125-0.0675 0.70875h-2.9475v1.755h2.34q0.0675 0.36 0.0675 0.6975 0 0.36-0.0675 0.70875h-2.34v2.1375h3.0262q0.0675 0.3375 0.0675 0.68625 0 0.37125-0.0675 0.70875h-4.6688v-8.0888z"/>
+<path id="path6291" d="m8.105 12.059 3.3975-6.5813h-3.105q-0.0675-0.3375-0.0675-0.68625 0-0.37125 0.0675-0.70875h5.4225l0.09 0.135-3.3638 6.5588h3.195q0.0675 0.3375 0.0675 0.68625 0 0.37125-0.0675 0.70875h-5.5575l-0.07875-0.1125z"/>
+</g>
+</g>
+<g id="g6293">
+<g id="g6295" fill="#ff671a">
+<path id="path6297" d="m2.4885 4.0824h4.59q0.0675 0.3375 0.0675 0.68625 0 0.37125-0.0675 0.70875h-2.9475v1.755h2.34q0.0675 0.36 0.0675 0.6975 0 0.36-0.0675 0.70875h-2.34v2.1375h3.0262q0.0675 0.3375 0.0675 0.68625 0 0.37125-0.0675 0.70875h-4.6688v-8.0888z"/>
+<path id="path6299" d="m8.105 12.059 3.3975-6.5813h-3.105q-0.0675-0.3375-0.0675-0.68625 0-0.37125 0.0675-0.70875h5.4225l0.09 0.135-3.3638 6.5588h3.195q0.0675 0.3375 0.0675 0.68625 0 0.37125-0.0675 0.70875h-5.5575l-0.07875-0.1125z"/>
+</g>
+</g>
+</svg>

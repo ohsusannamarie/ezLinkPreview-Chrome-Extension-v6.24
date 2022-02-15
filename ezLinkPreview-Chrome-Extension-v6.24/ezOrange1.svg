@@ -1,0 +1,22 @@
+<svg id="svg5687" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" height="16" viewBox="0 0 16 16" width="16" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<defs id="defs5689">
+<filter id="filter5887" style="color-interpolation-filters:sRGB" height="1.5006" width="1.3263" y="-.25032" x="-.16314">
+<feGaussianBlur id="feGaussianBlur5889" stdDeviation="0.82499996"/>
+</filter>
+</defs>
+<g id="layer1" transform="translate(0 -1036.4)" stroke="#555" fill="#f7941d">
+<path id="rect3336" stroke-linejoin="round" d="m1.9031 1036.9h12.194c0.78383 0 1.4149 0.6311 1.4149 1.4149v12.194c0 0.7838-0.63102 1.4147-1.4149 1.4147h-12.194c-0.78383 0-1.4149-0.6309-1.4149-1.4147v-12.194c0-0.7838 0.63102-1.4149 1.4149-1.4149z" fill-rule="evenodd" stroke="#555" stroke-width=".97651" fill="#f7941d"/>
+</g>
+<g id="layer5">
+<g id="text5805" fill-opacity=".85207" transform="scale(.98875 1.0114)" filter="url(#filter5887)" fill="#2c2f32">
+<path id="path5897" d="m2.5285 12.26v-7.91h5.4598v1.4723h-3.553v1.6678h2.9988v1.4179h-2.9988v1.8851h3.5421v1.4668h-5.449z"/>
+<path id="path5899" d="m8.4827 5.8227v-1.4723h6.1443v0.97788l-3.7431 5.4653h3.7811v1.4668h-6.1606v-1.005l3.7703-5.4327h-3.792z"/>
+</g>
+</g>
+<g id="g5809">
+<g id="text5811" fill="#f3f7f7" transform="scale(.98875 1.0114)">
+<path id="path5892" d="m2.1239 11.865v-7.91h5.4598v1.4723h-3.553v1.6678h2.9988v1.4179h-2.9988v1.8851h3.5421v1.4668h-5.449z"/>
+<path id="path5894" d="m8.0781 5.4272v-1.4723h6.1443v0.97788l-3.7431 5.4653h3.7811v1.4668h-6.1606v-1.005l3.7703-5.4327h-3.792z"/>
+</g>
+</g>
+</svg>
